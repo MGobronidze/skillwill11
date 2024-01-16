@@ -1,17 +1,17 @@
-const Book = (props) =>{
+const Book = ({name, image, description, action, character}) =>{
 
     return (
         <div className="book">
             {/* header */}
-            <h1 className="book-title"> {props.name}</h1>
+            <h1 className="book-title"> {name}</h1>
             {/* image */}
-            <img src={props.image} alt={props.name} className="img-container"/>
+            <img src={image} alt={name} className="img-container"/>
             {/* short description */}
-            <p>{props.description}</p>
+            <p>{description}</p>
             {/* character names */}
-            {props.character.map((char) => <div>{char}</div>)}
+            {character.map((char) => <div>{char}</div>)}
             {/* button - function - console info about book*/}
-            <button className="btn">Print Info</button>
+            <button onClick={()=> action(name, character )} className="btn">Print Info</button>
         </div>
     )    
 }
